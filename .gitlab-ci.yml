@@ -1,0 +1,32 @@
+#FRONTLINE CI/CD
+#image: ubuntu:20.04
+
+stages:    
+  - build
+  - test
+
+before_script:
+  - apt-get update -yqq
+  - apt-get install -yqq openjdk-16-jdk ant junit4
+
+#Build
+build-game: 
+  stage: build
+  script:
+    - cd Frontline
+    - echo "Compiling the code..."
+    - ant compile -Dfile.encoding=UTF8
+    - ant dist    
+    - echo "Compile complete."
+  artifacts: 
+    paths:
+      - Frontline/dist/lib/Frontline.jar
+    expire_in: 1 week  
+
+#Test
+unit-test-job:  
+  stage: test 
+  script:
+    - cd Frontline
+    - echo "Running unit tests..."
+    - ant test

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>D:/elte2/szofttech/4_merf_uml/Frontline</OriginalElement>
+  <nodes>
+    <node x="1147.0" y="1495.0">frontline.persistence.SearchNode</node>
+    <node x="492.0" y="1306.0">frontline.persistence.FileType</node>
+    <node x="1152.0" y="625.0">frontline.entities.Barrack</node>
+    <node x="0.0" y="0.0">frontline.persistence.GameEngine</node>
+    <node x="530.0" y="1495.0">frontline.PlayerTester</node>
+    <node x="401.99999999999994" y="637.0">frontline.entities.Warrior</node>
+    <node x="966.05" y="452.0">frontline.entities.StaticEntity</node>
+    <node x="1503.0" y="1495.0">frontline.panels.LevelEditorPanel</node>
+    <node x="671.3" y="220.0">frontline.entities.ControlledEntity</node>
+    <node x="593.0" y="637.0">frontline.entities.Cavalry</node>
+    <node x="785.05" y="788.0">frontline.entities.IronTower</node>
+    <node x="483.49999999999994" y="394.0">frontline.entities.MovingEntity</node>
+    <node x="825.55" y="0.0">frontline.entities.Entity</node>
+    <node x="617.0" y="963.0">frontline.panels.GameBoardPanel</node>
+    <node x="0.0" y="1306.0">frontline.persistence.StaticsType</node>
+    <node x="0.0" y="963.0">frontline.GameEngineTester</node>
+    <node x="1300.0" y="963.0">frontline.persistence.TowerType</node>
+    <node x="784.0" y="614.0">frontline.entities.Tower</node>
+    <node x="990.05" y="788.0">frontline.entities.WoodenTower</node>
+    <node x="968.0" y="625.0">frontline.entities.Castle</node>
+    <node x="306.0" y="963.0">frontline.persistence.LevelEditorEngine</node>
+    <node x="248.0" y="1306.0">frontline.persistence.UnitType</node>
+    <node x="768.0" y="1495.0">frontline.Frontline</node>
+    <node x="1044.0" y="963.0">frontline.LevelEditorEngineTester</node>
+    <node x="1325.0" y="1495.0">frontline.persistence.Coord</node>
+    <node x="962.0" y="1495.0">frontline.MainWindow</node>
+    <node x="1246.0" y="1306.0">frontline.panels.EndGamePanel</node>
+    <node x="0.0" y="1495.0">frontline.panels.NewGamePanel</node>
+    <node x="1004.0" y="1306.0">frontline.entities.NeutralType</node>
+    <node x="1203.6" y="0.0">frontline.persistence.Player</node>
+    <node x="909.3" y="243.0">frontline.entities.NeutralEntity</node>
+    <node x="732.0" y="1306.0">frontline.res.ResourceLoader</node>
+    <node x="575.05" y="788.0">frontline.entities.BrickTower</node>
+    <node x="265.0" y="1495.0">frontline.panels.MenuPanel</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="frontline.entities.Castle" target="frontline.entities.StaticEntity" relationship="GENERALIZATION">
+      <point x="0.0" y="-51.0" />
+      <point x="1050.0" y="589.0" />
+      <point x="1061.55" y="589.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="frontline.entities.ControlledEntity" target="frontline.entities.Entity" relationship="GENERALIZATION">
+      <point x="0.0" y="-62.0" />
+      <point x="780.3" y="195.0" />
+      <point x="903.05" y="195.0" />
+      <point x="0.0" y="85.0" />
+    </edge>
+    <edge source="frontline.entities.StaticEntity" target="frontline.entities.ControlledEntity" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="1061.55" y="369.0" />
+      <point x="780.3" y="369.0" />
+      <point x="0.0" y="62.0" />
+    </edge>
+    <edge source="frontline.entities.IronTower" target="frontline.entities.Tower" relationship="GENERALIZATION">
+      <point x="0.0" y="-50.0" />
+      <point x="877.55" y="763.0" />
+      <point x="866.0" y="763.0" />
+      <point x="0.0" y="62.0" />
+    </edge>
+    <edge source="frontline.entities.BrickTower" target="frontline.entities.Tower" relationship="GENERALIZATION">
+      <point x="0.0" y="-50.0" />
+      <point x="670.05" y="763.0" />
+      <point x="866.0" y="763.0" />
+      <point x="0.0" y="62.0" />
+    </edge>
+    <edge source="frontline.entities.Barrack" target="frontline.entities.StaticEntity" relationship="GENERALIZATION">
+      <point x="0.0" y="-51.0" />
+      <point x="1237.5" y="589.0" />
+      <point x="1061.55" y="589.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="frontline.entities.Warrior" target="frontline.entities.MovingEntity" relationship="GENERALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="487.49999999999994" y="589.0" />
+      <point x="585.0" y="589.0" />
+      <point x="0.0" y="85.0" />
+    </edge>
+    <edge source="frontline.entities.Tower" target="frontline.entities.StaticEntity" relationship="GENERALIZATION">
+      <point x="0.0" y="-62.0" />
+      <point x="866.0" y="589.0" />
+      <point x="1061.55" y="589.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="frontline.entities.NeutralEntity" target="frontline.entities.Entity" relationship="GENERALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="1025.8" y="195.0" />
+      <point x="903.05" y="195.0" />
+      <point x="0.0" y="85.0" />
+    </edge>
+    <edge source="frontline.entities.WoodenTower" target="frontline.entities.Tower" relationship="GENERALIZATION">
+      <point x="0.0" y="-50.0" />
+      <point x="1094.55" y="763.0" />
+      <point x="866.0" y="763.0" />
+      <point x="0.0" y="62.0" />
+    </edge>
+    <edge source="frontline.entities.MovingEntity" target="frontline.entities.ControlledEntity" relationship="GENERALIZATION">
+      <point x="0.0" y="-85.0" />
+      <point x="585.0" y="369.0" />
+      <point x="780.3" y="369.0" />
+      <point x="0.0" y="62.0" />
+    </edge>
+    <edge source="frontline.entities.Cavalry" target="frontline.entities.MovingEntity" relationship="GENERALIZATION">
+      <point x="-5.6843418860808015E-14" y="-39.0" />
+      <point x="678.4999999999999" y="589.0" />
+      <point x="585.0" y="589.0" />
+      <point x="0.0" y="85.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.7588826114249843" showDependencies="false" x="626.6596906278436" y="836.6057573000248" />
+  <SelectedNodes>
+    <node>frontline.persistence.Player</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Frontline">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Frontline/dist/lib/Frontline.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
