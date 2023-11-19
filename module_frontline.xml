@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_frontline" default="compile.module.frontline">
+  <dirname property="module.frontline.basedir" file="${ant.file.module_frontline}"/>
+  
+  <property name="module.jdk.home.frontline" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.frontline" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.frontline" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.frontline" value="-encoding UTF-8 -source 17 -target 17 ${compiler.args}"/>
+  
+  <property name="frontline.output.dir" value="${module.frontline.basedir}/out/production/Frontline"/>
+  <property name="frontline.testoutput.dir" value="${module.frontline.basedir}/out/test/Frontline"/>
+  
+  <path id="frontline.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="frontline.module.production.classpath">
+    <path refid="${module.jdk.classpath.frontline}"/>
+  </path>
+  
+  <path id="frontline.runtime.production.module.classpath">
+    <pathelement location="${frontline.output.dir}"/>
+  </path>
+  
+  <path id="frontline.module.classpath">
+    <path refid="${module.jdk.classpath.frontline}"/>
+    <pathelement location="${frontline.output.dir}"/>
+  </path>
+  
+  <path id="frontline.runtime.module.classpath">
+    <pathelement location="${frontline.testoutput.dir}"/>
+    <pathelement location="${frontline.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.frontline">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.frontline">
+    <patternset refid="excluded.from.module.frontline"/>
+  </patternset>
+  
+  <path id="frontline.module.sourcepath">
+    <dirset dir="${module.frontline.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  <path id="frontline.module.test.sourcepath">
+    <dirset dir="${module.frontline.basedir}">
+      <include name="test"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.frontline" depends="compile.module.frontline.production,compile.module.frontline.tests" description="Compile module Frontline"/>
+  
+  <target name="compile.module.frontline.production" depends="register.custom.compilers" description="Compile module Frontline; production classes">
+    <mkdir dir="${frontline.output.dir}"/>
+    <javac2 destdir="${frontline.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.frontline}/javac">
+      <compilerarg line="${compiler.args.frontline}"/>
+      <bootclasspath refid="frontline.module.bootclasspath"/>
+      <classpath refid="frontline.module.production.classpath"/>
+      <src refid="frontline.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.frontline"/>
+    </javac2>
+    
+    <copy todir="${frontline.output.dir}">
+      <fileset dir="${module.frontline.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.frontline.tests" depends="register.custom.compilers,compile.module.frontline.production" description="compile module Frontline; test classes" unless="skip.tests">
+    <mkdir dir="${frontline.testoutput.dir}"/>
+    <javac2 destdir="${frontline.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.frontline}/javac">
+      <compilerarg line="${compiler.args.frontline}"/>
+      <bootclasspath refid="frontline.module.bootclasspath"/>
+      <classpath refid="frontline.module.classpath"/>
+      <src refid="frontline.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.frontline"/>
+    </javac2>
+    
+    <copy todir="${frontline.testoutput.dir}">
+      <fileset dir="${module.frontline.basedir}/test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.frontline" description="cleanup module">
+    <delete dir="${frontline.output.dir}"/>
+    <delete dir="${frontline.testoutput.dir}"/>
+  </target>
+</project>
